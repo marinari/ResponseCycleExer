@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+        <h1>Blue Crown Apartments:</h1>
+        <!-- Slideshow of pictures goes here-->
+        <div class="Slideshow"></div>
+        <p class="header">Located in Buckhead neighborhood of Atlanta. All aparments are on the top floor.
+        All rooms are fully furnished w TV and cable.</p>
+
+        <div class="listings">
+        Please select which room you would like to rent. 
+        Minimum 1 week stay at a time. 
+            <div class="aptitem">
+                <h3>Large Room</h3>
+                <ul>
+                    <li>Contains washer and dryer</li>
+                </ul>
+
+            </div>
+
+            <div class="aptitem">
+                <h3>Medium Room</h3>
+                <ul>
+                    <li>Community washer and dryer</li>
+                </ul>
+            </div>
+
+            <div class="aptitem">
+                <h3>Small Room 1</h3>
+                <ul>
+                    <li>Community washer and dryer </li>
+                </ul>
+            </div>
+
+            <div class="aptitem">
+                <h3>Small Room 2</h3>
+                <ul>
+                    <li>Community washer and dryer</li>
+                </ul>
+            </div>
+
+        Which apartment would you like to book?
+        <select name="aptchoice" data-submit_on_change="true">
+        <option value="1">Large</option>
+        <option value="2">Medium</option>
+        <option value="3">Small 1</option>
+        <option value="4">Small 2</option>
+        </select>
+
+        Please complete the following form to send your booking form. Once booked, a confirmation email will be sent to you.
+        <%= form_tag send_email_path, method: :post do %>
+            <%= label_tag(:firstname, "First Name:") %>
+            <%= text_field_tag(:firstname)%><br>
+
+            <%= label_tag(:lastname, "Last Name:") %>
+            <%= text_field_tag(:lastname)%><br>
+
+            <%= label_tag(:user_phone, "Phone Number:") %>
+            <%= telephone_field(:user, :phone) %>
+
+            <%= label_tag(:user_address, "Email Address:") %>
+            <%= email_field(:user, :address) %>
+
+            <%= label_tag(:user_start_date, "Check-In Date:") %>
+            <%= date_field(:user, :start_date) %>
+
+            <%= label_tag(:user_end_date, "Check-Out Date:") %>
+            <%= date_field(:user, :end_date) %>
+
+            <%= submit_tag("Send") %>
+        <%end%>
+
+        </div>
+    </body>
+</html>
